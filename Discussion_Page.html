@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Discussion</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+var url=location.search;
+var uname="MainAd";
+if (url.indexOf("?") != -1) {    
+    var str = url.substr(1); 
+    var strNum = str.split("="); 
+    var temp= strNum[1].split("&");
+    uname = temp[0];
+      //alert(strNum[0]);  
+}
+//头
+function HeaderUser(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"Main_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Home
+					    </button>
+				    </div></a>
+				    <a href={"Problem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Problem
+					    </button>
+				    </div></a>
+				    <a href={"Lesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Lesson
+					    </button>
+				    </div></a>
+				    <a href={"Discussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Discussion
+					    </button>
+				    </div></a>
+				    <a href={"MockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Mock Interview
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+				<div class="dropdown" style={{background:"white"}}>
+					<a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+						<img src="User.png" style={{width: 50 }}/>
+					</a>
+					
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" href={"User_Page.html?data="+uname}>User Page</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"PostDiscussion_Page.html?data="+uname}>Post a discussion</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Edit My Information</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"Main_Page.html?data=MainAd"}>Sign Out</a>
+					</div>
+				</div>
+				<div class="dropdown-menu">
+						<a class="dropdown-item" href={"Main_Page.html?data="+uname}>English</a>
+						<a class="dropdown-item" href={"zhMain_Page.html?data="+uname}>Chinese</a>
+				</div>
+				<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							Language
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"Discussion_Page.html?data="+uname}>English</a>
+							<a class="dropdown-item" href={"zhDiscussion_Page.html?data="+uname}>Chinese</a>
+						</div>
+				</div>
+				</div>
+		    </div>
+	    </div>
+    );
+    
+}
+function HeaderGuest(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"Main_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Home
+					    </button>
+				    </div></a>
+				    <a href={"Problem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Problem
+					    </button>
+				    </div></a>
+				    <a href={"Lesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Lesson
+					    </button>
+				    </div></a>
+				    <a href={"Discussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Discussion
+					    </button>
+				    </div></a>
+				    <a href={"MockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Mock Interview
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+					<div class="btn-group mt-3">
+						<a href="Login.html"><button type="button" class="btn btn-outline-secondary">Login</button></a>
+						<a href="SignUp.html"><button type="button" class="btn btn-secondary">SignUp</button></a>
+					</div>
+					<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							Language
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"Discussion_Page.html?data="+uname}>English</a>
+							<a class="dropdown-item" href={"zhDiscussion_Page.html?data="+uname}>Chinese</a>
+						</div>
+					</div>
+				</div>
+		    </div>
+	    </div>
+    );
+}
+var titleStyle = {
+    width: 250
+};
+
+function Bodytag(props) {
+    return (
+        <div class="row mt-2 border border-bottom-0 border-right-0 border-left-0">
+                <div class="col-md-1" />
+                <div class="col-md-10 mt-3">
+                    <div class="row" style={{textAlign : 'center'}}>
+                        <div class="card bg-secondary text-white">
+                            <div class="card-body" style={{height:100, width:160}}><h5>Interview Question</h5></div>
+                        </div>
+                    
+                        <div class="card bg-light text-dark ml-4">
+                            <div class="card-body" style={{height:100, width:160}}><h5>Interview Experience</h5></div>
+                        </div>
+                    
+                        <div class="card bg-light text-dark ml-4">
+                            <div class="card-body" style={{height:100, width:160}}><h5>Compensation</h5></div>
+                        </div>
+                    
+                        <div class="card bg-light text-dark ml-4">
+                            <div class="card-body" style={{height:100, width:160}}><h5>Study Guide</h5></div>
+                        </div>
+                        <div class="card bg-light text-dark ml-4">
+                            <div class="card-body" style={{height:100, width:160}}><h5>Career</h5></div>
+                        </div>
+                        <div class="card bg-light text-dark ml-4">
+                            <div class="card-body" style={{height:100, width:160}}><h5>General Discussion</h5></div>
+                        </div>
+                        <div class="card bg-light text-dark ml-4">
+                            <div class="card-body" style={{height:100, width:160}}><h5>Support & Feedback</h5></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1" />
+        </div>
+	);
+}
+function Bodymain(props) {
+    return (
+        <div class="row mt-2 ">
+                <div class="col-md-1" />
+                <div class="col-md-8 mt-1 border" >
+                    <div class="row" style={{background:"#D3D3D3"}}>
+                        <button type="button" class="btn">All Interview Questions</button>
+                        <button type="button" class="btn">System Design</button>
+                        <button type="button" class="btn">Operating System</button>
+                        <button type="button" class="btn">Object-Oriented Design</button>
+                    </div>
+                    <div class="row">
+                        
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="btn active" data-toggle="pill" href="#home">Hot</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn" data-toggle="pill" href="#menu1">Newest to Oldest</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn" data-toggle="pill" href="#menu2">Most Votes</a>
+                            </li>
+                            <form class="form-inline ml-5" role="search" action=""  >
+                                <div class="form-group">
+                                <input name="KeyWord" class="form-control mr-sm-2" type="text" placeholder="Search KeyWord"/>
+                                </div>
+                                <button class="btn my-2 my-sm-0" type="submit" style={{}}><img src="Search.png" style={{width: 25 }}/></button>
+                            </form>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="home" class="container tab-pane active">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><a href={"DiscussionDetail_Page.html?data="+uname} style={{color:"black"}}><h6>Microsoft Online Assessment Questions</h6></a> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><a href={"DiscussionDetail_Page.html?data="+uname} style={{color:"black"}}><h6>Microsoft Online Assessment Questions</h6></a> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><a href={"DiscussionDetail_Page.html?data="+uname} style={{color:"black"}}><h6>Microsoft Online Assessment Questions</h6></a> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><a href={"DiscussionDetail_Page.html?data="+uname} style={{color:"black"}}><h6>Microsoft Online Assessment Questions</h6></a> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><a href={"DiscussionDetail_Page.html?data="+uname} style={{color:"black"}}><h6>Microsoft Online Assessment Questions</h6></a> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><a href={"DiscussionDetail_Page.html?data="+uname} style={{color:"black"}}><h6>Microsoft Online Assessment Questions</h6></a> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><a href={"DiscussionDetail_Page.html?data="+uname} style={{color:"black"}}><h6>Microsoft Online Assessment Questions</h6></a> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><a href={"DiscussionDetail_Page.html?data="+uname} style={{color:"black"}}><h6>Microsoft Online Assessment Questions</h6></a> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><a href={"DiscussionDetail_Page.html?data="+uname} style={{color:"black"}}><h6>Microsoft Online Assessment Questions</h6></a> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="menu1" class="container tab-pane fade">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="menu2" class="container tab-pane fade">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="ID.jpg" style={{borderRadius:"100%",width:50}}/></td>
+                                        <td style={{width:800}}><h6>Microsoft Online Assessment Questions</h6> <span class="badge badge-pill badge-secondary">microsoft</span><span class="badge badge-pill badge-secondary">online assessment</span></td>
+                                        <td>&#128077;423&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&#128078;845&nbsp;&nbsp;</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mt-1 border border-left-0">
+                    <form class="form-inline" role="search" action=""  >
+                        <div class="form-group">
+                        <input name="KeyWord" class="form-control mr-sm-2" type="text" placeholder="Search tag" style={{width: 160 }}/>
+                        </div>
+                        <button class="btn my-2 my-sm-0" type="submit" style={{}}><img src="Search.png" style={{width: 25 }}/></button>
+                    </form>
+                    <span class="badge badge-secondary" style={{background:"#CDC9C9"}}>google | 1141</span>
+                    <span class="badge badge-secondary ml-4" style={{background:"#CDC9C9"}}>amazon | 913</span>
+                    <span class="badge badge-secondary ml-4" style={{background:"#CDC9C9"}}>phone screen | 866</span>
+                    <span class="badge badge-secondary" style={{background:"#CDC9C9"}}>facebook | 616</span>
+                    <span class="badge badge-secondary ml-4" style={{background:"#CDC9C9"}}>amazon | 913</span>
+                    <span class="badge badge-secondary ml-4" style={{background:"#CDC9C9"}}>amazon | 913</span>
+                    <span class="badge badge-secondary ml-4" style={{background:"#CDC9C9"}}>amazon | 913</span>
+                    <span class="badge badge-secondary ml-4" style={{background:"#CDC9C9"}}>amazon | 913</span>
+
+
+                </div>
+                <div class="col-md-1" />
+        </div>
+	);
+}
+
+//页尾
+function Footer(props){
+    return(
+        <div class="row">
+            <div class="col-md-12 bg-dark text-white">
+                <h6 class="text-center mt-2">
+                    Contact Us: scai064@uottawa.ca | 613-252-3763
+                </h6>
+                <h6 class="text-center">
+                    Address: 75 Laurier Ave. E, Ottawa, ON K1N 6N5 (From 8AM to 6PM)
+                </h6>
+
+            </div>
+        </div>
+
+    );
+}
+class Main extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {};
+      
+  }
+
+  
+ render(){
+    if(uname=="MainAd")
+    return(
+        <div>
+            <HeaderGuest />
+            <Bodytag />
+            <Bodymain />
+            <Footer />
+        </div>
+        
+    );
+    else
+    return(
+        <div>
+            <HeaderUser />
+            <Bodytag />
+            <Bodymain />
+            <Footer />
+        </div>
+        
+    );
+}
+}
+
+ReactDOM.render(
+    <Main />,
+    document.getElementById('example')
+);
+
+</script>
+
+</body>
+</html>

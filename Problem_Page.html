@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Problem</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> 
+
+
+</head>
+
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+var url=location.search;
+var uname="MainAd";
+if (url.indexOf("?") != -1) {    
+    var str = url.substr(1); 
+    var strNum = str.split("="); 
+    var temp= strNum[1].split("&");
+    uname = temp[0];
+      //alert(strNum[0]);  
+}
+//头
+function HeaderUser(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"Main_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Home
+					    </button>
+				    </div></a>
+				    <a href={"Problem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Problem
+					    </button>
+				    </div></a>
+				    <a href={"Lesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Lesson
+					    </button>
+				    </div></a>
+				    <a href={"Discussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Discussion
+					    </button>
+				    </div></a>
+				    <a href={"MockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Mock Interview
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+				<div class="dropdown" style={{background:"white"}}>
+					<a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+						<img src="User.png" style={{width: 50 }}/>
+					</a>
+					
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" href={"User_Page.html?data="+uname}>User Page</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"PostDiscussion_Page.html?data="+uname}>Post a discussion</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Edit My Information</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"Main_Page.html?data=MainAd"}>Sign Out</a>
+					</div>
+				</div>
+				<div class="dropdown-menu">
+						<a class="dropdown-item" href={"Main_Page.html?data="+uname}>English</a>
+						<a class="dropdown-item" href={"zhMain_Page.html?data="+uname}>Chinese</a>
+				</div>
+				<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							Language
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"Main_Page.html?data="+uname}>English</a>
+							<a class="dropdown-item" href={"zhMain_Page.html?data="+uname}>Chinese</a>
+						</div>
+				</div>
+				</div>
+		    </div>
+	    </div>
+    );
+    
+}
+function HeaderGuest(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"Main_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Home
+					    </button>
+				    </div></a>
+				    <a href={"Problem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Problem
+					    </button>
+				    </div></a>
+				    <a href={"Lesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Lesson
+					    </button>
+				    </div></a>
+				    <a href={"Discussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Discussion
+					    </button>
+				    </div></a>
+				    <a href={"MockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    Mock Interview
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+					<div class="btn-group mt-3">
+						<a href="Login.html"><button type="button" class="btn btn-outline-secondary">Login</button></a>
+						<a href="SignUp.html"><button type="button" class="btn btn-secondary">SignUp</button></a>
+					</div>
+					<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							Language
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"Main_Page.html?data="+uname}>English</a>
+							<a class="dropdown-item" href={"zhMain_Page.html?data="+uname}>Chinese</a>
+						</div>
+					</div>
+				</div>
+		    </div>
+	    </div>
+    );
+}
+var titleStyle = {
+    width: 250
+};
+function Body(props){
+    return (
+		<div class="row mt-2 border border-bottom-0 border-right-0 border-left-0" >
+			<div class="col-md-12 " style={{textAlign : 'center'}}>
+				<div id="demo" class="carousel slide border border-right-0 border-top-0 border-left-0 " data-ride="carousel">
+                    <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    </ul>
+
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                        <div class="col-md-4 mt-4">
+                            <div class="alert alert-info alert-dismissible ml-5" style={{width:350,color:"#D3D3D3", height:220,background:"url('future.jpg')"}}>
+                                <h4 >Weekly Contest 30</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>END: Sunday, July 3<br/>2:30-4:00AM UTC</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img alt="cup" src="trophy.png" style={{width:80}} />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-outline-info"style={{background:"url('future.jpg')"}} >Exercise Now</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-4">
+                            <div class="alert alert-info alert-dismissible ml-5" style={{width:350,color:"#D3D3D3", height:220,background:"url('future.jpg')"}}>
+                                <h4 >Monthly Contest 30</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>END: Sunday, July 30<br/>2:30-4:00AM UTC</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img alt="cup" src="trophy.png" style={{width:80}} />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-outline-info"style={{background:"url('future.jpg')"}} >Exercise Now</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-4">
+                            <div class="alert alert-info alert-dismissible ml-5" style={{width:350,color:"#D3D3D3", height:220,background:"url('future2.jpg')"}}>
+                                <h4 >How to prepare Amazon Interview</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>Sunday, July 3<br/>2:30-4:00AM UTC<br/>Tom Jerry</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img alt="cup" src="expert.png" style={{width:80}} />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-outline-info"style={{background:"url('future2.jpg')"}} >Register Now</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4 mt-4">
+                            <div class="alert alert-info alert-dismissible ml-5" style={{width:350,color:"#D3D3D3", height:220,background:"url('future2.jpg')"}}>
+                                <h4 >How to prepare Google Interview</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>Sunday, July 3<br/>2:30-4:00AM UTC<br/>Tom Jerry</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img alt="cup" src="expert.png" style={{width:80}} />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-outline-info"style={{background:"url('future2.jpg')"}} >Register Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev" >
+                        <span class="carousel-control-prev-icon" style={{color:"#708090"}}></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next" >
+                        <span class="carousel-control-next-icon" style={{color:"#708090"}}></span>
+                    </a>
+
+                </div>
+
+                
+                <nav class="navbar navbar-expand-sm " >
+                    <ul class="row navbar-nav ml-5" >
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Array<span class="badge badge-secondary ml-1">1142</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>String<span class="badge badge-secondary ml-1">549</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Hash Table<span class="badge badge-secondary ml-1">392</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Dynamic Programming<span class="badge badge-secondary ml-1">383</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Math<span class="badge badge-secondary ml-1">363</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Sorting<span class="badge badge-secondary ml-1">253</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Depth-First Search<span class="badge badge-secondary ml-1">250</span></a>
+                        </li>
+                        <li class="nav-item " >
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Greedy<span class="badge badge-secondary ml-1">248</span></a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Database<span class="badge badge-secondary ml-1">207</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Breadth-First Search<span class="badge badge-secondary ml-1">198</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#filter" data-toggle="collapse" style={{color:"#000000"}}>Expand<span class="badge"><img alt="expand" src="Expand.png" style={{}} /></span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Tree<span class="badge badge-secondary ml-1">191</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Binary Search<span class="badge badge-secondary ml-1">186</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Matrix<span class="badge badge-secondary ml-1">171</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Two Pointers<span class="badge badge-secondary ml-1">150</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Bit Manipulation<span class="badge badge-secondary ml-1">139</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Stack<span class="badge badge-secondary ml-1">129</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Design<span class="badge badge-secondary ml-1">114</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Heap (Priority Queue)<span class="badge badge-secondary ml-1">110</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>Graph<span class="badge badge-secondary ml-1">102</span></a>
+                        </li>
+                        
+                    </ul>
+                    
+                </nav>
+                <nav class="navbar navbar-expand-sm navbar-light">
+                    <ul class="navbar-nav ml-5">
+                        <li class="nav-item">
+                            <div class="dropdown" style={{background:"white"}}>
+                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"#CDC9C9"}}>
+                                    Difficulty
+                                </a>
+                        
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" style={{color:"red"}}>Hard</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"orange"}}>Medium</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"#90EE90"}}>Easy</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-4">
+                            <div class="dropdown" style={{background:"white"}}>
+                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"#CDC9C9"}}>
+                                    Status
+                                </a>
+                        
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" style={{color:"#696969"}}>Todo</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"orange"}}>Attempted</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"#90EE90"}}>Solved</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-4">
+                            <div class="dropdown" style={{background:"white"}}>
+                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"#CDC9C9"}}>
+                                    Acceptance
+                                </a>
+                        
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" style={{color:"red"}}>&lt;30%</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"orange"}}>Around 50%</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"#90EE90"}}>&gt;70%</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-4">
+                            <div class="dropdown" style={{background:"white"}}>
+                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"#CDC9C9"}}>
+                                    50/Page
+                                </a>
+                        
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" >20/Page</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">50/Page</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" >100/Page</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-5">
+                            <form class="form-inline" role="search" action=""  >
+                                <div class="form-group">
+                                <input name="KeyWord" class="form-control mr-sm-2" type="text" placeholder="Search KeyWord"/>
+                                </div>
+                                <button class="btn my-2 my-sm-0" type="submit" style={{}}><img src="Search.png" style={{width: 25 }}/></button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </nav>
+
+                <table class="table table-hover ml-5" style={{width:1400}}>
+                    <thead class="thead-light">
+                        <tr>
+                        <th >Statue</th>
+                        <th>Title</th>
+                        <th data-toggle="tooltip" title="Do this question has offical solution? Code or video explaination">Solution</th>
+                        <th>Acceptance</th>
+                        <th>Difficulty</th>
+                        <th data-toggle="tooltip" title="Frequency of problems that appear in real interviews. 181 interviews have been recorded">Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td style={{color:"#0000EE"}}>Code</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>Easy</td>
+                        <td>Never</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"orange"}}>Attempted</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td style={{color:"#A020F0"}}>Video</td>
+                        <td>48.8%</td>
+                        <td style={{color:"orange"}}>Medium</td>
+                        <td>2/181</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"#2E8B57"}}>Solved</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td style={{color:"#2E8B57"}}>Code&video</td>
+                        <td>48.8%</td>
+                        <td style={{color:"red"}}>Hard</td>
+                        <td>13/181</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td >-</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>Easy</td>
+                        <td>Never</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td style={{color:"#0000EE"}}>Code</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>Easy</td>
+                        <td>Never</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"orange"}}>Attempted</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td style={{color:"#A020F0"}}>Video</td>
+                        <td>48.8%</td>
+                        <td style={{color:"orange"}}>Medium</td>
+                        <td>2/181</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"#2E8B57"}}>Solved</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td style={{color:"#2E8B57"}}>Code&video</td>
+                        <td>48.8%</td>
+                        <td style={{color:"red"}}>Hard</td>
+                        <td>13/181</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td >-</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>Easy</td>
+                        <td>Never</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td style={{color:"#0000EE"}}>Code</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>Easy</td>
+                        <td>Never</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"orange"}}>Attempted</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td style={{color:"#A020F0"}}>Video</td>
+                        <td>48.8%</td>
+                        <td style={{color:"orange"}}>Medium</td>
+                        <td>2/181</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"#2E8B57"}}>Solved</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td style={{color:"#2E8B57"}}>Code&video</td>
+                        <td>48.8%</td>
+                        <td style={{color:"red"}}>Hard</td>
+                        <td>13/181</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"ProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.Two Sum</a></td>
+                        <td >-</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>Easy</td>
+                        <td>Never</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                <ul class="pagination mx-auto" >
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+                </div>
+				
+				
+			</div>
+			
+		</div>
+	);
+}
+//页尾
+function Footer(props){
+    return(
+        <div class="row">
+            <div class="col-md-12 bg-dark text-white">
+                <h6 class="text-center mt-2">
+                    Contact Us: scai064@uottawa.ca | 613-252-3763
+                </h6>
+                <h6 class="text-center">
+                    Address: 75 Laurier Ave. E, Ottawa, ON K1N 6N5 (From 8AM to 6PM)
+                </h6>
+
+            </div>
+        </div>
+
+    );
+}
+function Main(props){
+    if(uname=="MainAd")
+    return(
+        <div>
+            <HeaderGuest />
+            <Body />
+            <Footer />
+        </div>
+        
+    );
+    else
+    return(
+        <div>
+            <HeaderUser />
+            <Body />
+            <Footer />
+        </div>
+        
+    );
+}
+ReactDOM.render(
+    <Main />,
+    document.getElementById('example')
+);
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+</body>
+</html>

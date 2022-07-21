@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>问题描述</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+var url=location.search;
+var uname="MainAd";
+if (url.indexOf("?") != -1) {    
+    var str = url.substr(1); 
+    var strNum = str.split("="); 
+    var temp= strNum[1].split("&");
+    uname = temp[0];
+      //alert(strNum[0]);  
+}
+//头
+function HeaderUser(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"zhMain_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    主页
+					    </button>
+				    </div></a>
+				    <a href={"zhProblem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    问题
+					    </button>
+				    </div></a>
+				    <a href={"zhLesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    课程
+					    </button>
+				    </div></a>
+				    <a href={"zhDiscussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    讨论
+					    </button>
+				    </div></a>
+				    <a href={"zhMockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    模拟面试
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+				<div class="dropdown" style={{background:"white"}}>
+					<a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+						<img src="User.png" style={{width: 50 }}/>
+					</a>
+					
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" href={"zhUser_Page.html?data="+uname}>用户空间</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"zhPostDiscussion_Page.html?data="+uname}>发表讨论</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">编辑信息</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"zhMain_Page.html?data=MainAd"}>登出</a>
+					</div>
+				</div>
+				<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							语言
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"ProblemDescription_Page.html?data="+uname}>英语</a>
+							<a class="dropdown-item" href={"zhProblemDescription_Page.html?data="+uname}>汉语</a>
+						</div>
+				</div>
+				</div>
+		    </div>
+	    </div>
+    );
+    
+}
+function HeaderGuest(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"zhMain_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    主页
+					    </button>
+				    </div></a>
+				    <a href={"zhProblem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    问题
+					    </button>
+				    </div></a>
+				    <a href={"zhLesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    课程
+					    </button>
+				    </div></a>
+				    <a href={"zhDiscussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    讨论
+					    </button>
+				    </div></a>
+				    <a href={"zhMockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    模拟面试
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+					<div class="btn-group mt-3">
+						<a href="zhLogin.html"><button type="button" class="btn btn-outline-secondary">登录</button></a>
+						<a href="zhSignUp.html"><button type="button" class="btn btn-secondary">注册</button></a>
+					</div>
+					<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							语言
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"ProblemDescription_Page.html?data="+uname}>英语</a>
+							<a class="dropdown-item" href={"zhProblemDescription_Page.html?data="+uname}>汉语</a>
+						</div>
+					</div>
+				</div>
+		    </div>
+	    </div>
+    );
+}
+var titleStyle = {
+    width: 250
+};
+
+function handleChange(event) {
+      const target=event.target;
+      const tname=target.name;
+      const value=target.value;
+      const comment=document.getElementById("comment");
+      if(value=="C++"){
+        //alert("......");
+        comment.value="class Solution {\npublic:\n  string longestPalindrome(string s) {\n\n   }\n};";
+      }else if(value=="Java"){
+        comment.value="class Solution {\n       public String longestPalindrome(String s) {\n\n     }\n}";
+      }else if(value=="JavaScript"){
+        comment.value="/**\n* @param {string} s\n* @return {string}\n*/\nvar longestPalindrome = function(s) {\n\n};";
+      }else if(value=="Python"){
+        comment.value="class Solution(object):\n    def longestPalindrome(self, s):";
+      }else if(value=="Python3"){
+        comment.value="class Solution:\n    def longestPalindrome(self, s: str) -> str:";
+      }else if(value=="C"){
+        comment.value="char * longestPalindrome(char * s){\n\n}";
+      }else if(value=="C#"){
+        comment.value="public class Solution {\n       public String longestPalindrome(String s) {\n\n     }\n}";
+      }else if(value=="PHP"){
+        comment.value="class Solution {\n   /**\n   * @param String $s\n    * @return String\n  */\n        function longestPalindrome($s) {\n\n        }\n}";
+      }else if(value=="GO"){
+        comment.value="func longestPalindrome(s string) string {\n\n}";
+      }
+    //this.setState({value: event.target.value});
+  }
+var preCode="";
+
+function Body(props) {
+    return (
+		<div class="row mt-2 border border-bottom-0 border-right-0 border-left-0">
+            <div class="col-md-6 mt-2 border border-bottom-0 border-top-0" >
+                <ul class="nav nav-tabs" style={{background:"#E8E8E8"}}>
+                    <li class="nav-item" >
+                        <a class="nav-link active" data-toggle="tab" href="#Description" >描述</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu1">答案</a>
+                    </li>
+                    <li class="nav-item " >
+                        <a class="nav-link"  data-toggle="tab" href="#menu2" id="sub">提交</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu3">讨论</a>
+                    </li>
+                </ul>
+                
+                <div class="tab-content border border-top-0 mb-5">
+                <div class="tab-pane active container" id="Description">
+                    <h3>5. 最长回文字符串</h3>
+                    <div class="row border border-top-0 border-right-0 border-left-0 ">
+                        <div class="col-md-2">
+                            <h6 style={{color:"orange"}}>中等 </h6>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="#" >&#128077;</a>18396
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <a href="#">&#128078;</a>1143
+                        </div>
+                        <div class="col-md-2">
+                            <a href="#">&#9825;</a> 添加到待做
+                        </div>
+                    </div>
+                    <p class="mt-4"> 给定字符串 <kbd style={{background:"#DCDCDC",color:"black"}}>s</kbd>, 返回 <kbd style={{background:"#DCDCDC",color:"black"}}>s</kbd>里最长的回文字符串.</p>
+                    <div class="card bg-light text-dark mt-5">
+                        <div class="card-header">例1:</div>
+                        <div class="card-body">输入: s = "babad"<br/>输出: "bab"<br/>解释: "aba" 也可.</div> 
+                    </div>
+                    <div class="card bg-light text-dark mt-5">
+                        <div class="card-header">例2:</div>
+                        <div class="card-body">输入: s = "cbbd"<br/>输出: "bb"</div> 
+                    </div>
+                    <dl class="mt-5">
+                        <dt>范围:</dt>
+                        <dd >- <kbd style={{background:"#DCDCDC",color:"black"}}>1 &lt;= s.length &lt;= 1000</kbd></dd>
+                        <dd>- <kbd style={{background:"#DCDCDC",color:"black"}}>s</kbd> 只包含英文字母和数字.</dd>
+                    </dl> 
+
+
+                </div>
+                <div class="tab-pane container ml-3" id="menu1">
+                    <h3 class="mt-3">总结</h3>
+                    <p>这篇文章是写给中级读者的。介绍了回文、动态编程和字符串操作。确保你理解回文的意思。回文是一个在两个方向读取相同的字符串。例如，S = "aba"是回文，S = "abc"不是。</p>
+                    <h3 class="mt-3">答案</h3>
+                    <div class="row border border-bottom-0 border-right-0 border-left-0"></div>
+                    <h4 class="mt-2">方法1:最长公共子串</h4>
+                    <h6 class="mt-3">常见的错误</h6>
+                    <p>有些人会忍不住想出一个快速的解决方案，但不幸的是，这个解决方案存在缺陷(但很容易纠正)::</p>
+                    <div class="card bg-light text-dark">
+                        <div class="card-body">把S反转，变成S'求S和S'之间最长的公共子串，它也必须是最长的回文子串。</div>
+                    </div>
+                    <p>这似乎是可行的，让我们看看下面的一些例子。</p>
+                    <p>例如，S = "caba"， S' = "abac"。</p>
+                    <p>S和S'之间最长的公共子串是"aba"，这就是答案。</p>
+                    <p>让我们尝试另一个例子:S = "abacdfgdcaba"， S' = "abacdgfdcaba"。</p>
+                    <p>S和S'之间的最长公共子串是“abacd”。显然，这不是一个有效的回文。</p>
+                    <h6>算法</h6>
+                    <p>我们可以看到，当SS的其他部分存在一个非回文子串的反向副本时，最长公共子串方法失败了。为了纠正这一点，每次我们找到一个最长公共子串候选时，我们检查子串的索引是否与反向子串的原始索引相同。如果是，那么我们尝试更新迄今为止找到的最长回文;如果没有，我们就跳过这一步，寻找下一个候选人。</p>
+                    <p>这给了我们一个O(n^2)动态规划解决方案，它使用O(n^2)空间(可以改进为使用O(n)空间)。</p>
+                    <div class="row border border-bottom-0 border-right-0 border-left-0"></div>
+                    <h4 class="mt-2">方法2:蛮力</h4>
+                    <p>明显的蛮力解决方案是为子字符串选择所有可能的开始和结束位置，并验证它是否为回文。</p>
+                    <h6>复杂性分析</h6>
+                    <p>— 时间复杂度:O(n^3)。假设n是输入字符串的长度，总共有n*(n-1)/2个这样的子字符串(不包括一个字符本身是回文的平凡解)。由于验证每个子字符串需要O(n)时间，因此运行时复杂度为O(n^3).</p>
+                    <p>— 空间复杂度: O(1).</p>
+                </div>
+                <div class="tab-pane container" id="menu2" >
+                    <h4 class="mt-4 ml-3" id="subtitle">尚未提交</h4>
+                    <p class="mt-4 ml-3" id="runtime">运行时间: N/A</p>
+                    <p class="mt-4 ml-3" id="memory">使用内存: N/A</p>
+                    <div class="row ml-3">
+                    <p class="mt-4">分享 :</p>
+                    <img src="twitter.png" style={{width:220}}/>
+                    </div>
+                    <div class="row border border-bottom-0 border-right-0 border-left-0"></div>
+                    <table class="table table-bordered table-hover ml-3 mt-4">
+                        <thead class="thead-light">
+                            <tr>
+                            <th>提交时间</th>
+                            <th>状态</th>
+                            <th>运行时间</th>
+                            <th>使用内存</th>
+                            <th>语言</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>2022/06/29 15:51</td>
+                            <td class="text-success">接受</td>
+                            <td>6ms</td>
+                            <td>81.5MB</td>
+                            <td>Java</td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 13:57</td>
+                            <td class="text-danger">错误答案</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 12:21</td>
+                            <td class="text-danger">编译错误</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                            <tr>
+                            <td>2022/06/29 11:31</td>
+                            <td class="text-danger">超时</td>
+                            <td>1000ms</td>
+                            <td>N/A</td>
+                            <td>Java</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane container" id="menu3" >
+                    <div class="row mt-3 border border-top-0 border-right-0 border-left-0" >
+                        <div class="col-md-2" style={{textAlign : 'center'}}>
+                            <img src="ID.jpg" style={{borderRadius:"100%",width:50}}/>
+                        </div>
+                        <div class="col-md-10">
+                            <h5>C++ || 简单的答案 || O(n^2) || 动态规划</h5>
+                            <p>阿什瓦尼·库马尔创建于:13小时前 | 尚未回复.</p>
+                        </div>
+                    </div>
+                    <div class="row mt-3 border border-top-0 border-right-0 border-left-0" >
+                        <div class="col-md-2" style={{textAlign : 'center'}}>
+                            <img src="ID.jpg" style={{borderRadius:"100%",width:50}}/>
+                        </div>
+                        <div class="col-md-10">
+                            <h5>C# DP 使用队列</h5>
+                            <p>ssmcgrat 创建于: 2 小时前 | 尚未回复.</p>
+                        </div>
+                    </div>
+                    <div class="row mt-3 border border-top-0 border-right-0 border-left-0" >
+                        <div class="col-md-2" style={{textAlign : 'center'}}>
+                            <img src="ID.jpg" style={{borderRadius:"100%",width:50}}/>
+                        </div>
+                        <div class="col-md-10">
+                            <h5>C++ || 简单的答案 || O(n^2) || 动态规划</h5>
+                            <p>阿什瓦尼·库马尔创建于:13小时前 | 尚未回复.</p>
+                        </div>
+                    </div>
+                    <div class="row mt-3 border border-top-0 border-right-0 border-left-0" >
+                        <div class="col-md-2" style={{textAlign : 'center'}}>
+                            <img src="ID.jpg" style={{borderRadius:"100%",width:50}}/>
+                        </div>
+                        <div class="col-md-10">
+                            <h5>C++ || 简单的答案 || O(n^2) || 动态规划</h5>
+                            <p>阿什瓦尼·库马尔创建于:13小时前 | 尚未回复.</p>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-2">
+                <div class="row border border-top-0 border-right-0 border-left-0">
+                    <div class="col-md-6">
+                        <input name='language'placeholder="Select Language" list="id_datalist" onChange={handleChange}/>
+
+                        <datalist id="id_datalist" name="staff">
+
+                        <option value="Java"></option>
+                        <option value="C++"></option>
+                        <option value="Python"></option>
+                        <option value="Python3"></option>
+                        <option value="C"></option>
+                        <option value="C#"></option>
+                        <option value="JavaScript"></option>
+                        <option value="PHP"></option>
+                        <option value="GO"></option>
+
+                        </datalist>
+                    </div>
+                    <p>&#8634;   &nbsp;	&nbsp;  &#8635; </p>
+                </div>
+                <form>
+                    <div class="form-group">
+                    <textarea class="form-control" rows="25" id="comment"></textarea>
+                    </div>
+                </form>
+                <div class="row mb-3">
+                    <div class="col-md-10" style={{textAlign:"right"}}>
+                    <button type="button" class="btn btn-outline-secondary ml-5">运行例子</button>
+                    </div>
+                    <input type="button" class="btn btn-secondary" id="button" value="提交" onclick="buttonClick();"/>
+                </div>
+                
+            </div>
+        </div>
+	);
+}
+
+//页尾
+function Footer(props){
+    return(
+        <div class="row">
+            <div class="col-md-12 bg-dark text-white">
+                <h6 class="text-center mt-2">
+                    联系我们: scai064@uottawa.ca | 613-252-3763
+                </h6>
+                <h6 class="text-center">
+                    地址: 75 Laurier Ave. E, Ottawa, ON K1N 6N5 (从 8AM 到 6PM)
+                </h6>
+
+            </div>
+        </div>
+
+    );
+}
+class Main extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {};
+      
+  }
+
+  
+ render(){
+    if(uname=="MainAd")
+    return(
+        <div>
+            <HeaderGuest />
+            <Body />
+            <Footer />
+        </div>
+        
+    );
+    else
+    return(
+        <div>
+            <HeaderUser />
+            <Body />
+            <Footer />
+        </div>
+        
+    );
+}
+}
+
+ReactDOM.render(
+    <Main />,
+    document.getElementById('example')
+);
+
+
+var btn = document.getElementById("button");  
+    btn.onclick =function(){  
+        //alert(document.getElementById("sub").attributes);
+        const title=document.getElementById("subtitle");
+        title.innerHTML="成功";
+        title.style.color="green";
+        const runtime=document.getElementById("runtime");
+        runtime.innerHTML="- 运行时间: 7 ms, 比50%使用Java的人快";
+        const memory=document.getElementById("memory");
+        memory.innerHTML="- 内存使用: 90 MB, 少于40%使用Java的人";
+
+
+    }
+</script>
+
+</body>
+</html>

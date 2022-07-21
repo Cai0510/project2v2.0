@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>问题</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> 
+
+
+</head>
+
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+var url=location.search;
+var uname="MainAd";
+if (url.indexOf("?") != -1) {    
+    var str = url.substr(1); 
+    var strNum = str.split("="); 
+    var temp= strNum[1].split("&");
+    uname = temp[0];
+      //alert(strNum[0]);  
+}
+//头
+function HeaderUser(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"zhMain_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    主页
+					    </button>
+				    </div></a>
+				    <a href={"zhProblem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    问题
+					    </button>
+				    </div></a>
+				    <a href={"zhLesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    课程
+					    </button>
+				    </div></a>
+				    <a href={"zhDiscussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    讨论
+					    </button>
+				    </div></a>
+				    <a href={"zhMockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    模拟面试
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+				<div class="dropdown" style={{background:"white"}}>
+					<a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+						<img src="User.png" style={{width: 50 }}/>
+					</a>
+					
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" href={"zhUser_Page.html?data="+uname}>用户空间</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"zhPostDiscussion_Page.html?data="+uname}>发表讨论</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">编辑信息</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"zhMain_Page.html?data=MainAd"}>登出</a>
+					</div>
+				</div>
+				<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							语言
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"Problem_Page.html?data="+uname}>英语</a>
+							<a class="dropdown-item" href={"zhProblem_Page.html?data="+uname}>汉语</a>
+						</div>
+				</div>
+				</div>
+		    </div>
+	    </div>
+    );
+    
+}
+function HeaderGuest(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"zhMain_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    主页
+					    </button>
+				    </div></a>
+				    <a href={"zhProblem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    问题
+					    </button>
+				    </div></a>
+				    <a href={"zhLesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    课程
+					    </button>
+				    </div></a>
+				    <a href={"zhDiscussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    讨论
+					    </button>
+				    </div></a>
+				    <a href={"zhMockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    模拟面试
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+					<div class="btn-group mt-3">
+						<a href="zhLogin.html"><button type="button" class="btn btn-outline-secondary">登录</button></a>
+						<a href="zhSignUp.html"><button type="button" class="btn btn-secondary">注册</button></a>
+					</div>
+					<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							语言
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"Problem_Page.html?data="+uname}>英语</a>
+							<a class="dropdown-item" href={"zhProblem_Page.html?data="+uname}>汉语</a>
+						</div>
+					</div>
+				</div>
+		    </div>
+	    </div>
+    );
+}
+var titleStyle = {
+    width: 250
+};
+function Body(props){
+    return (
+		<div class="row mt-2 border border-bottom-0 border-right-0 border-left-0" >
+			<div class="col-md-12 " style={{textAlign : 'center'}}>
+				<div id="demo" class="carousel slide border border-right-0 border-top-0 border-left-0 " data-ride="carousel">
+                    <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    </ul>
+
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                        <div class="col-md-4 mt-4">
+                            <div class="alert alert-info alert-dismissible ml-5" style={{width:350,color:"#D3D3D3", height:220,background:"url('future.jpg')"}}>
+                                <h4 >周赛 30</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>结束: 周天, 6.3<br/>2:30-4:00AM UTC</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img alt="cup" src="trophy.png" style={{width:80}} />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-outline-info"style={{background:"url('future.jpg')"}} >现在练习</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-4">
+                            <div class="alert alert-info alert-dismissible ml-5" style={{width:350,color:"#D3D3D3", height:220,background:"url('future.jpg')"}}>
+                                <h4 >月赛 30</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>结束: 周天, 6.30<br/>2:30-4:00AM UTC</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img alt="cup" src="trophy.png" style={{width:80}} />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-outline-info"style={{background:"url('future.jpg')"}} >现在练习</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-4">
+                            <div class="alert alert-info alert-dismissible ml-5" style={{width:350,color:"#D3D3D3", height:220,background:"url('future2.jpg')"}}>
+                                <h4 >如何准备亚马逊面试</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>周天，6.3<br/>2:30-4:00AM UTC<br/>提米</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img alt="cup" src="expert.png" style={{width:80}} />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-outline-info"style={{background:"url('future2.jpg')"}} >现在注册</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4 mt-4">
+                            <div class="alert alert-info alert-dismissible ml-5" style={{width:350,color:"#D3D3D3", height:220,background:"url('future2.jpg')"}}>
+                                <h4 >如何准备亚马逊面试</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>周天，6.3<br/>2:30-4:00AM UTC<br/>提米</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img alt="cup" src="expert.png" style={{width:80}} />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-outline-info"style={{background:"url('future2.jpg')"}} >现在注册</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev" >
+                        <span class="carousel-control-prev-icon" style={{color:"#708090"}}></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next" >
+                        <span class="carousel-control-next-icon" style={{color:"#708090"}}></span>
+                    </a>
+
+                </div>
+
+                
+                <nav class="navbar navbar-expand-sm " >
+                    <ul class="row navbar-nav ml-5" >
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>队列<span class="badge badge-secondary ml-1">1142</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>字符串<span class="badge badge-secondary ml-1">549</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>哈希表<span class="badge badge-secondary ml-1">392</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>多态<span class="badge badge-secondary ml-1">383</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>数学<span class="badge badge-secondary ml-1">363</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>排序<span class="badge badge-secondary ml-1">253</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>深度优先搜索<span class="badge badge-secondary ml-1">250</span></a>
+                        </li>
+                        <li class="nav-item " >
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>贪心算法<span class="badge badge-secondary ml-1">248</span></a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>数据库<span class="badge badge-secondary ml-1">207</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>广度优先搜索<span class="badge badge-secondary ml-1">198</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#filter" data-toggle="collapse" style={{color:"#000000"}}>Expand<span class="badge"><img alt="expand" src="Expand.png" style={{}} /></span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>树<span class="badge badge-secondary ml-1">191</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>二元搜索<span class="badge badge-secondary ml-1">186</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>数组<span class="badge badge-secondary ml-1">171</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>双指针<span class="badge badge-secondary ml-1">150</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>位处理<span class="badge badge-secondary ml-1">139</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>栈<span class="badge badge-secondary ml-1">129</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>设计<span class="badge badge-secondary ml-1">114</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>队 (优先队列)<span class="badge badge-secondary ml-1">110</span></a>
+                        </li>
+                        <li class="nav-item collapse" id="filter">
+                            <a class="nav-link" href="#" style={{color:"#000000"}}>图<span class="badge badge-secondary ml-1">102</span></a>
+                        </li>
+                        
+                    </ul>
+                    
+                </nav>
+                <nav class="navbar navbar-expand-sm navbar-light">
+                    <ul class="navbar-nav ml-5">
+                        <li class="nav-item">
+                            <div class="dropdown" style={{background:"white"}}>
+                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"#CDC9C9"}}>
+                                    难度
+                                </a>
+                        
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" style={{color:"red"}}>难</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"orange"}}>中等</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"#90EE90"}}>简单</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-4">
+                            <div class="dropdown" style={{background:"white"}}>
+                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"#CDC9C9"}}>
+                                    状态
+                                </a>
+                        
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" style={{color:"#696969"}}>马上做</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"orange"}}>尝试</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"#90EE90"}}>解决的</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-4">
+                            <div class="dropdown" style={{background:"white"}}>
+                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"#CDC9C9"}}>
+                                    接受率
+                                </a>
+                        
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" style={{color:"red"}}>&lt;30%</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"orange"}}>大约 50%</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" style={{color:"#90EE90"}}>&gt;70%</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-4">
+                            <div class="dropdown" style={{background:"white"}}>
+                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"#CDC9C9"}}>
+                                    50/页
+                                </a>
+                        
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" >20/页</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">50/页</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" >100/页</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-5">
+                            <form class="form-inline" role="search" action=""  >
+                                <div class="form-group">
+                                <input name="KeyWord" class="form-control mr-sm-2" type="text" placeholder="搜索"/>
+                                </div>
+                                <button class="btn my-2 my-sm-0" type="submit" style={{}}><img src="Search.png" style={{width: 25 }}/></button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </nav>
+
+                <table class="table table-hover ml-5" style={{width:1400}}>
+                    <thead class="thead-light">
+                        <tr>
+                        <th >状态</th>
+                        <th>题目</th>
+                        <th data-toggle="tooltip" title="这个问题有官方答案吗? 代码还是视频解释">答案</th>
+                        <th>接受率</th>
+                        <th>难度</th>
+                        <th data-toggle="tooltip" title="在真实面试中该问题出现的频率. 181 次面试已被记录">频率</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td style={{color:"#0000EE"}}>代码</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>简单</td>
+                        <td>从不</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"orange"}}>尝试</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td style={{color:"#A020F0"}}>视频</td>
+                        <td>48.8%</td>
+                        <td style={{color:"orange"}}>中等</td>
+                        <td>2/181</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"#2E8B57"}}>解决的</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td style={{color:"#2E8B57"}}>代码&视频</td>
+                        <td>48.8%</td>
+                        <td style={{color:"red"}}>困难</td>
+                        <td>13/181</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td >-</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>简单</td>
+                        <td>从不</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td style={{color:"#0000EE"}}>代码</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>简单</td>
+                        <td>从不</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"orange"}}>尝试</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td style={{color:"#A020F0"}}>视频</td>
+                        <td>48.8%</td>
+                        <td style={{color:"orange"}}>中等</td>
+                        <td>2/181</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"#2E8B57"}}>解决的</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td style={{color:"#2E8B57"}}>代码&视频</td>
+                        <td>48.8%</td>
+                        <td style={{color:"red"}}>困难</td>
+                        <td>13/181</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td >-</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>简单</td>
+                        <td>从不</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td style={{color:"#0000EE"}}>代码</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>简单</td>
+                        <td>从不</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"orange"}}>尝试</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td style={{color:"#A020F0"}}>视频</td>
+                        <td>48.8%</td>
+                        <td style={{color:"orange"}}>中等</td>
+                        <td>2/181</td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"#2E8B57"}}>解决的</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td style={{color:"#2E8B57"}}>代码&视频</td>
+                        <td>48.8%</td>
+                        <td style={{color:"red"}}>困难</td>
+                        <td>13/181</td>
+                        </tr>
+                        <tr>
+                        <td>-</td>
+                        <td ><a href={"zhProblemDescription_Page.html?data="+uname} style={{color:"#000000"}}>1.两数之和</a></td>
+                        <td >-</td>
+                        <td>48.8%</td>
+                        <td style={{color:"#2E8B57"}}>简单</td>
+                        <td>从不</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                <ul class="pagination mx-auto" >
+                    <li class="page-item"><a class="page-link" href="#">上一页</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+                </ul>
+                </div>
+				
+				
+			</div>
+			
+		</div>
+	);
+}
+//页尾
+function Footer(props){
+    return(
+        <div class="row">
+            <div class="col-md-12 bg-dark text-white">
+                <h6 class="text-center mt-2">
+                    联系我们: scai064@uottawa.ca | 613-252-3763
+                </h6>
+                <h6 class="text-center">
+                    地址: 75 Laurier Ave. E, Ottawa, ON K1N 6N5 (早八点到晚六点)
+                </h6>
+
+            </div>
+        </div>
+
+    );
+}
+function Main(props){
+    if(uname=="MainAd")
+    return(
+        <div>
+            <HeaderGuest />
+            <Body />
+            <Footer />
+        </div>
+        
+    );
+    else
+    return(
+        <div>
+            <HeaderUser />
+            <Body />
+            <Footer />
+        </div>
+        
+    );
+}
+ReactDOM.render(
+    <Main />,
+    document.getElementById('example')
+);
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+</body>
+</html>

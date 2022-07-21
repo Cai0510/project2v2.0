@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Discussion Detail</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+var url=location.search;
+var uname="MainAd";
+if (url.indexOf("?") != -1) {    
+    var str = url.substr(1); 
+    var strNum = str.split("="); 
+    var temp= strNum[1].split("&");
+    uname = temp[0];
+      //alert(strNum[0]);  
+}
+//头
+function HeaderUser(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"zhMain_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    主页
+					    </button>
+				    </div></a>
+				    <a href={"zhProblem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    问题
+					    </button>
+				    </div></a>
+				    <a href={"zhLesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    课程
+					    </button>
+				    </div></a>
+				    <a href={"zhDiscussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    讨论
+					    </button>
+				    </div></a>
+				    <a href={"zhMockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    模拟面试
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+				<div class="dropdown" style={{background:"white"}}>
+					<a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+						<img src="User.png" style={{width: 50 }}/>
+					</a>
+					
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" href={"zhUser_Page.html?data="+uname}>用户空间</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"zhPostDiscussion_Page.html?data="+uname}>发表讨论</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">编辑信息</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href={"zhMain_Page.html?data=MainAd"}>登出</a>
+					</div>
+				</div>
+				<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							语言
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"Main_Page.html?data="+uname}>英语</a>
+							<a class="dropdown-item" href={"zhMain_Page.html?data="+uname}>汉语</a>
+						</div>
+				</div>
+				</div>
+		    </div>
+	    </div>
+    );
+    
+}
+function HeaderGuest(props){
+    return (
+        <div class="row mx-auto mt-3">
+		    <div class="col-md-2">
+			    <img alt="title" src="title.png" style={titleStyle}/>
+		    </div>
+		    <div class="col-md-7">
+			    <div class="row ml-2 mt-3">
+				    <a href={"zhMain_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    主页
+					    </button>
+				    </div></a>
+				    <a href={"zhProblem_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    问题
+					    </button>
+				    </div></a>
+				    <a href={"zhLesson_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    课程
+					    </button>
+				    </div></a>
+				    <a href={"zhDiscussion_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    讨论
+					    </button>
+				    </div></a>
+				    <a href={"zhMockInterview_Page.html?data="+uname}><div class="col">
+					    <button type="button" class="btn btn-outline-info">
+						    模拟面试
+					    </button>
+				    </div></a>
+			    </div>
+		    </div>
+		    <div class="col-md-3">
+				<div class="row">
+					<div class="btn-group mt-3">
+						<a href="zhLogin.html"><button type="button" class="btn btn-outline-secondary">登录</button></a>
+						<a href="zhSignUp.html"><button type="button" class="btn btn-secondary">注册</button></a>
+					</div>
+					<div class="dropdown mt-3 ml-5">
+						<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+							语言
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href={"Main_Page.html?data="+uname}>英语</a>
+							<a class="dropdown-item" href={"zhMain_Page.html?data="+uname}>汉语</a>
+						</div>
+					</div>
+				</div>
+		    </div>
+	    </div>
+    );
+}
+var titleStyle = {
+    width: 250
+};
+
+function Bodytitle(props) {
+    return (
+        <div class="row mt-2 border border-bottom-0 border-right-0 border-left-0" >
+            <div class="col-md-2" />
+            <div class="col-md-1 border border-dark border-top-0" style={{background:"#E8E8E8"}}><a><h5 class="mt-1">&#129120;返回</h5></a></div>
+            <div class="col-md-5 border border-top-0 border-dark border-left-0" style={{background:"#E8E8E8"}}><h5 class="mt-1">标题: C++ || 简单答案 || O(n^2) || 动态规划</h5></div>
+            <div class="col-md-2 border border-top-0 border-dark border-left-0" style={{background:"#E8E8E8"}}>
+                <div class="row mt-1">
+                    <div class="col-md-3">
+                        <a href="#" >&#128077;4</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#">&#128078;8</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" data-toggle="tooltip" title="关注">&#9825;</a> 
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" data-toggle="tooltip" title="报告问题">&#9888;</a> 
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+
+	);
+}
+function Bodymain(props) {
+    return (
+        <div class="row">
+            <div class="col-md-2" />
+            <div class="col-md-1 border border-dark border-top-0" style={{textAlign : 'center', color:"#696969",background:"#E8E8E8"}}>
+                <img class="mt-3"src="ID.jpg" style={{width:80}}/>
+                <h6 class="mt-1">用户</h6>
+                <h6>上次编辑:<br/>5 小时以前</h6>
+                <h6>16 浏览</h6>
+            </div>
+            <div class="col-md-7 border border-dark border-top-0 border-left-0" style={{height:1000,background:"#E8E8E8"}} >
+
+            </div>
+            
+            
+
+        </div>
+        
+
+	);
+}
+
+//页尾
+function Footer(props){
+    return(
+        <div class="row">
+            <div class="col-md-12 bg-dark text-white">
+                <h6 class="text-center mt-2">
+                    联系我们: scai064@uottawa.ca | 613-252-3763
+                </h6>
+                <h6 class="text-center">
+                    地址: 75 Laurier Ave. E, Ottawa, ON K1N 6N5 (从 8AM 到 6PM)
+                </h6>
+
+            </div>
+        </div>
+
+    );
+}
+class Main extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {};
+      
+  }
+
+  
+ render(){
+    if(uname=="MainAd")
+    return(
+        <div>
+            <HeaderGuest />
+            <Bodytitle />
+            <Bodymain />
+            <Footer />
+        </div>
+        
+    );
+    else
+    return(
+        <div>
+            <HeaderUser />
+            <Bodytitle />
+            <Bodymain />
+            <Footer />
+        </div>
+        
+    );
+}
+}
+
+ReactDOM.render(
+    <Main />,
+    document.getElementById('example')
+);
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+
+</script>
+
+</body>
+</html>
